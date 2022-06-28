@@ -54,6 +54,12 @@ a img {
     display: flex
 }
 
+a img:hover {
+    -webkit-filter: url("#FF00FF");
+    filter: url("#FF00FF");
+    transform: scale(1.2);
+}
+
 p {
     margin: 0;
 }
