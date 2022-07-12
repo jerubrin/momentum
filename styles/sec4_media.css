@@ -1,0 +1,49 @@
+@media only screen and (max-width: 1040px) {
+    .picture-400-250 {
+        min-width: calc(400px / 5 * 4);
+        min-height: calc(250px  / 5 * 4);
+    }
+    
+    .article {
+        margin-top: 24px;
+    }
+    
+    h3 {
+        font-size: 30px;
+        margin: 0 0 20px;
+    }
+}
+
+
+@media only screen and (max-width: 951px) {
+    .picture-400-250 {
+        min-width: calc(400px / 5 * 3);
+        min-height: calc(250px  / 5 * 3);
+    }
+    
+    .article {
+        margin-top: 20px;
+    }
+    
+    h3 {
+        font-size: 24px;
+        margin: 0 0 16px;
+    }
+}
+
+
+@media only screen and (max-width: 640px) {
+    .picture-400-250 {
+        min-width: calc(400px / 5 * 2);
+        min-height: calc(250px  / 5 * 2);
+    }
+    
+    .article {
+        margin-top: 16px;
+    }
+    
+    h3 {
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+}
