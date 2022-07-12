@@ -1,0 +1,37 @@
+@media only screen and (max-width: 896px) {
+    #logo-text {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 718px) {
+    #top-nav ul li {
+        font-size: 12px;
+        margin: 0 16px;
+    }
+    
+    .little-button {
+        padding: 7px 20px;
+        font-size: 12px;
+    }
+    
+    header {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 547px) {
+    #top-nav ul li {
+        font-size: 8px;
+        margin: 0 10px;
+    }
+    
+    .little-button {
+        padding: 3px 10px;
+        font-size: 8px;
+    }
+    
+    header {
+        height: 40px;
+    }
+}

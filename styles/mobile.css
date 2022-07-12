@@ -1,4 +1,5 @@
-@media only screen and (max-width: 1199px) {
+
+@media only screen and (max-width: 390px) {
     #header-content nav {
         display: none;
     }
@@ -248,16 +249,13 @@
     }
 }
 
-.dropdown-content {
-    display: none;
-}
-
 #mobile-nav-block {
-    /* display: flex; */
-    justify-content: flex-end;
+    display: flex;
     position: fixed;
+    justify-content: flex-end;
     width: 100%;
     height: 100%;
+    z-index: 7;
 }
 
 #mobile-nav-menu {
@@ -290,6 +288,34 @@
     text-decoration: none;
 }
 
+#mobile-nav-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+}
+
+.drop-content-left {
+    left: 101%;
+    transition: 0.5s;
+}
+
+.display-none {
+    display: none;
+    background: rgba(0,0,0,0);
+    transition: background-color 2s linear;
+}
+
+.none-to-flex {
+    display: flex;
+}
+
 .show {
-    display:flex;
+    left: 0%;
+    transition: 0.5s;
+}
+
+.black-back {
+    background: rgba(0,0,0,0.6);
+    transition: background-color 2s linear;
 }
