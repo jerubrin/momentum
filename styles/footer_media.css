@@ -1,0 +1,46 @@
+@media only screen and (max-width: 880px) {
+    footer {
+        position: unset;
+        flex-direction: row;
+        font-size: 14px;
+    }
+    
+    footer p {
+        position: unset;
+        margin-left: 123.54px;
+        width: inherit;
+        text-align: start;
+    }
+    
+    #footer-social {
+        margin: 0 123.54px 0 0;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    footer p {
+        margin-left: 16px;
+    }
+    
+    #footer-social {
+        margin-right: 16px;
+    }
+    
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    footer p {
+        margin-left: 8px;
+    }
+    
+    #footer-social {
+        margin-right: 8px;
+    }
+    
+    footer {
+        font-size: 10px;
+    }
+}
