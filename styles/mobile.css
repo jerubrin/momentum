@@ -20,6 +20,7 @@
     #up-block {
         height: 251px;
         background-size: cover;
+        background-image: url(../img/header_mobile_bg.jpg);
     }
     
     header {
@@ -39,6 +40,7 @@
         width: 335px;
         padding-left: 16px;
         padding-right: 9px;
+        margin: 0;
     }
     .text-24 {
         font-size: 14px;
@@ -159,12 +161,17 @@
     .dest-1 {
         background: url(../img/mobile_dest1.jpg), #FFFFFF;
         margin-left: 870px;
+        margin-right: 30px;
     }
     .dest-2 {
         background: url(../img/mobile_dest2.jpg), #FFFFFF;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .dest-3 {
         background: url(../img/mobile_dest3.jpg), #FFFFFF;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .circle-active {
         background: rgba(242, 120, 92, 0.5);
@@ -179,6 +186,7 @@
     
     .stories-back {
         margin-top: 10px;
+        background: url(../img/footer_mobile_bg.jpg) no-repeat;
     }
     .picture-400-250 {
         min-width: 155px;
@@ -318,4 +326,59 @@
 .black-back {
     background: rgba(0,0,0,0.6);
     transition: background-color 2s linear;
+}
+
+
+
+
+
+@media only screen and (max-width: 360px) {
+    #planning-box {
+        width: calc(100vw - 25px);
+    }
+    
+    .cut-block {
+        width: 100vw;
+        height: calc(100vw * 0.6666)
+    }
+    
+    .cut-overflow {
+        height: calc(100vw * 0.61)
+    }
+    
+    .dest-1 {
+        margin-left: calc(100vw * 2 + 150px);
+        margin-right: 30px;
+    }
+    
+    .dest-2 {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    
+    .dest-3 {
+        margin-left: 30px;;
+        margin-right: 30px;;
+    }
+    
+    .dest-block {
+        width: 100vw;
+        height: calc(100vw * 0.58333);
+    }
+    
+    #arrows {
+        height: calc(100vw * 0.61);
+    }
+    
+    #arrow-left {
+        margin-right: calc(100vw * 0.42777)
+    }
+    
+    #arrow-right {
+        margin-left: calc(100vw * 0.42777)
+    }
+    
+    #circles {
+        margin-top: calc(100vw * 0.52777);
+    }
 }
