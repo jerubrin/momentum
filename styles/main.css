@@ -449,3 +449,7 @@ footer p{
 #arrow-right {
     margin-left: 154px;
 }
+
+#burger-menu-block {
+    display: none;
+}

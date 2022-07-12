@@ -35,8 +35,9 @@
     
     #planning-box {
         height: 48px;
-        width: 360px;
+        width: 335px;
         padding-left: 16px;
+        padding-right: 9px;
     }
     .text-24 {
         font-size: 14px;
@@ -241,4 +242,54 @@
     #footer-social {
         margin: 0;
     }
+    
+    #burger-menu-block {
+        display: flex;
+    }
+}
+
+.dropdown-content {
+    display: none;
+}
+
+#mobile-nav-block {
+    /* display: flex; */
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#mobile-nav-menu {
+    width: 165px;
+    height: 250px;
+    background: #F2785C;
+    box-shadow: 0px 4px 3px 0px #0D606F40;
+    border-radius: 10px;
+}
+
+#close-icon-block {
+    display: flex;
+    padding: 15px 15px 13px;
+}
+
+#nav-list nav ul {
+    margin: 0;
+}
+
+#nav-list nav ul li {
+    margin: 0 15px 10px 0;
+    font-family: "Red Hat Text";
+    font-size: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: right;
+}
+#nav-list nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.show {
+    display:flex;
 }
