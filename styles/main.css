@@ -429,10 +429,9 @@ footer p{
 }
 
 #circles {
-    position: fixed;
     display: flex;
-    width: 100%;
     margin-top: 824px;
+    z-index: 1;
 }
 
 #arrows {
@@ -443,6 +442,7 @@ footer p{
     height: 210px;
     justify-content: center;
     align-items: center;
+    z-index: 0;
 }
 #arrow-left {
     margin-right: 154px;
@@ -453,4 +453,12 @@ footer p{
 
 #burger-menu-block {
     display: none;
+}
+
+.z-minus-10 {
+    z-index: 0;
+}
+
+#slider-control {
+    z-index: 1;
 }
