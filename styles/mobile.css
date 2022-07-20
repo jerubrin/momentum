@@ -52,7 +52,7 @@
     }
     #preview {
         margin-top: 67px;
-        width: 360px;
+        max-width: 360px;
     }
     .p-bot-17 {
         padding-bottom: 0
@@ -165,24 +165,21 @@
     
     .dest-1 {
         background: url(../img/mobile_dest1.jpg), #FFFFFF;
-        margin-left: 870px;
+        background-position: center center;
+        margin-left: 30px;
         margin-right: 30px;
     }
     .dest-2 {
         background: url(../img/mobile_dest2.jpg), #FFFFFF;
+        background-position: center center;
         margin-left: 30px;
         margin-right: 30px;
     }
     .dest-3 {
         background: url(../img/mobile_dest3.jpg), #FFFFFF;
+        background-position: center center;
         margin-left: 30px;
         margin-right: 30px;
-    }
-    .circle-active {
-        background: rgba(242, 120, 92, 0.5);
-    }
-    .circle-active-mobile {
-        background: rgba(242, 120, 92, 1);
     }
     
     #stories-h2 {
@@ -352,7 +349,7 @@
     }
     
     .dest-1 {
-        margin-left: calc(100vw * 2 + 150px);
+        margin-left: 30px;
         margin-right: 30px;
     }
     

@@ -6,7 +6,6 @@ function openmenu() {
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-        console.log("isn't dropbtn")
         let dropdowns = document.getElementsByClassName("drop-content");
         let i;
         for (i = 0; i < dropdowns.length; i++) {

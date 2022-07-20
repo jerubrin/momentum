@@ -1,0 +1,5 @@
+function () {
+    document.getElementById("circle-1").classList.remove('circle-active');
+    document.getElementById("circle-2").classList.remove('circle-active');
+    document.getElementById("circle-3").classList.remove('circle-active');
+}
