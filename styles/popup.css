@@ -124,6 +124,8 @@
     height: 54px;
     box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
     border-radius: 10px;
+    border: none; 
+    outline: none;
 }
 
 .pass-box {
