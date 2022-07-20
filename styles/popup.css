@@ -21,6 +21,11 @@
     display: flex;
 }
 
+.login-round input {
+    font-size: 18px;
+    padding: 0 24px;
+}
+
 .login-round {
     position: relative;
     display: flex;
@@ -28,21 +33,28 @@
     margin: auto;
     width: 650px;
     height: auto;
+    min-height: 650px;
     max-height: 700px;
-    transition: height 2s;
+    transition: 0.8s;
     background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
 }
 
+.new-height {
+    min-height: 0;
+    max-height: 500px;
+    transition: 0.8s;
+}
+
 .login-box {
     display: flex;
     flex-direction: column;
-    margin: 25px 45px 23px; 
+    margin: 25px 45px 18px; 
 }
 
 .login-box h2 {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     font-family: 'Aleo';
     font-style: normal;
     font-weight: 700;
@@ -53,6 +65,7 @@
 .login-box button {
     display: flex;
     width: auto;
+    height: 56px;
     font-family: 'Red Hat Text';
     font-style: normal;
     font-weight: 400;
@@ -83,7 +96,7 @@
 }
 
 .or-box {
-    margin: 30px 0 10px;
+    margin: 29px 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -124,20 +137,26 @@
     height: 54px;
     box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
     border-radius: 10px;
+    border: none; 
+    outline: none;
 }
 
 .pass-box {
-    margin: 20px 0 25px;
+    margin: 18px 0 25px;
 }
 
 .login-box a{
-    margin: 10px 0 26px;
+    margin-top: 10px;
     font-family: 'Aleo';
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
     color: #0D606F;
     align-self: center;
+}
+
+.m-top-line{
+    margin-top: 25px;
 }
 
 .reg-bottom {
@@ -147,4 +166,13 @@
 
 .none-class {
     display: none;
+}
+
+#sing-button {
+    height: 54px;
+}
+
+p.reg-bottom {
+    font-size: 15px;
+    color: rgba(13, 96, 111, 0.5);
 }
