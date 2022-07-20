@@ -6,8 +6,10 @@
         <meta charset="utf-8">
         <script src="js/menu.js"></script>
         <script src="js/slider.js"></script>
+        <script src="js/popup.js"></script>
         
         <link rel="stylesheet" href="styles/slider.css">
+        <link rel="stylesheet" href="styles/popup.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/header_media.css">
         <link rel="stylesheet" href="styles/sec1_media.css">
@@ -42,7 +44,6 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        
         <div id="mobile-nav-block" class="drop-content-left drop-content">
             <div id="mobile-nav-menu">
                 <div id="close-icon-block">
@@ -104,7 +105,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <button class="little-button">Login</button>
+                        <button class="little-button" onclick="onLogin()">Login</button>
                         <div id="burger-menu-block" onclick="openmenu()" class="dropbtn">
                             <img alt="menu" src="img/burger.svg" class="dropbtn">
                         </div>
@@ -262,6 +263,49 @@
                         </li>
                     </ul>
                 </footer>
+            </div>
+        </div>
+        <div id="login-pop-up" class="popup">
+            <div id="back-pop" onclick="onCloseLogin()"></div>
+            <div class="login-round">
+                <div class="login-box">
+                    <h2>Log in to your account</h2>
+                    <button class="button-facebook">
+                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 12.0699C23 5.71857 17.8513 0.569852 11.5 0.569852C5.14872 0.569852 0 5.71857 0 12.0699C0 17.8098 4.20538 22.5674 9.70312 23.4301V15.3941H6.7832V12.0699H9.70312V9.53626C9.70312 6.65407 11.42 5.06204 14.0468 5.06204C15.305 5.06204 16.6211 5.28665 16.6211 5.28665V8.11673H15.171C13.7424 8.11673 13.2969 9.00319 13.2969 9.91264V12.0699H16.4863L15.9765 15.3941H13.2969V23.4301C18.7946 22.5674 23 17.8098 23 12.0699Z" fill="white"/>
+                        </svg>
+                        <span>Sign In with Facebook</span>
+                    </button>
+                    <button class="button-google">
+                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.54 12.2614C22.54 11.4459 22.4668 10.6618 22.3309 9.90909H11.5V14.3575H17.6891C17.4225 15.795 16.6123 17.013 15.3943 17.8284V20.7139H19.1109C21.2855 18.7118 22.54 15.7636 22.54 12.2614Z" fill="#4285F4"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 23.4998C14.605 23.4998 17.2081 22.4701 19.1109 20.7137L15.3943 17.8282C14.3645 18.5182 13.0472 18.926 11.5 18.926C8.50474 18.926 5.96951 16.903 5.06519 14.1848H1.22314V17.1644C3.11542 20.9228 7.00451 23.4998 11.5 23.4998Z" fill="#34A853"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.06523 14.1851C4.83523 13.4951 4.70455 12.758 4.70455 12.0001C4.70455 11.2421 4.83523 10.5051 5.06523 9.81506V6.83552H1.22318C0.444318 8.38802 0 10.1444 0 12.0001C0 13.8557 0.444318 15.6121 1.22318 17.1646L5.06523 14.1851Z" fill="#FBBC05"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 5.07386C13.1884 5.07386 14.7043 5.65409 15.8961 6.79364L19.1945 3.49523C17.2029 1.63955 14.5997 0.5 11.5 0.5C7.00451 0.5 3.11542 3.07705 1.22314 6.83545L5.06519 9.815C5.96951 7.09682 8.50474 5.07386 11.5 5.07386Z" fill="#EA4335"/>
+                        </svg>
+                        <span>Sign In with Google</span>
+                    </button>
+                    <div class="or-box">
+                        <div class="or-line"></div>
+                        <span>or</span>
+                        <div class="or-line"></div>
+                    </div>
+                    <div class="e-mail-box input-box">
+                        <p>E-mail</p>
+                        <input>
+                    </div>
+                    <div class="pass-box input-box">
+                        <p>Password</p>
+                        <input>
+                    </div>
+                    <button class="sing-button"><span>Sing In</span></button>
+                    <a href="#" class="link-forgot">Forgot Your Password?</a>
+                    <div class="or-line"></div>
+                    <p class="reg-bottom">
+                        <span class="reg-bottom-text">Don’t have an account?</span>
+                        <a class="reg-bottom-link" href="javascript:showSingUp()">Register</a>
+                    </p>
+                </div>
             </div>
         </div>
     </body>
