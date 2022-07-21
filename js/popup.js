@@ -38,7 +38,7 @@ function showLogin(){
         document.getElementsByClassName('button-google')[0].style.display = "flex";
         document.getElementsByClassName('or-box')[0].style.display = "flex";
         document.getElementsByClassName('link-forgot')[0].style.display = "flex";
-    }, 200)
+    }, 150)
 }
 
 function showAlert(){

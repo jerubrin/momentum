@@ -38,4 +38,15 @@
 
 #slider {
     transition: 0.5s;
+    min-width: 100px;
+}
+
+.slow-hide {
+    min-width: 0px !important;
+    margin: 0 1px !important;
+/*
+    transition: min-width 0.5s, margin 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+*/
 }
