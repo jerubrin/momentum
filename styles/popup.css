@@ -32,6 +32,7 @@
     flex-direction: column;
     margin: auto;
     width: 650px;
+    max-width: 90%;
     height: auto;
     min-height: 650px;
     max-height: 700px;
@@ -176,3 +177,80 @@ p.reg-bottom {
     font-size: 15px;
     color: rgba(13, 96, 111, 0.5);
 }
+
+@media only screen and (max-width: 460px) {
+    .login-round input {
+        font-size: 12px;
+        padding: 0 18px;
+    }
+    
+    .login-round {
+        min-height: 0;
+        max-height: 420px;
+        transition: 0.8s;
+    }
+    
+    .login-box {
+        margin: 18px 32px 12px;
+    }
+    
+    .login-box h2 {
+        margin-bottom: 18px;
+        font-size: 18px;
+    }
+    
+    .login-box button {
+        height: 36px;
+        font-size: 12px;
+        border-radius: 7px;
+    }
+    
+    .button-google {
+        margin-top: 10px;
+    }
+    
+    .or-box {
+        margin: 19px 0 6px;
+    }
+    
+    .or-box span{
+        font-size: 12px;
+    }
+    
+    .login-box p{
+        margin-bottom: 3px;
+        font-size: 10px;
+    }
+    
+    .login-box input{
+        height: 34px;
+        border-radius: 7px;
+    }
+    
+    .pass-box {
+        margin: 11px 0 15px;
+    }
+    
+    .login-box a{
+        margin-top: 6px;
+        font-size: 10px;
+    }
+    
+    .m-top-line{
+        margin-top: 15px;
+    }
+    
+    .reg-bottom {
+        margin-top: 10px;
+        align-self: center;
+    }
+    
+    #sing-button {
+        height: 34px;
+    }
+    
+    p.reg-bottom {
+        font-size: 10px;
+    }
+}
+    
