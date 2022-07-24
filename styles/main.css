@@ -314,6 +314,7 @@ footer p{
 }
 
 .cut-block {
+    position: relative;
     overflow: hidden;
     height: 930px;
 }
@@ -322,9 +323,10 @@ footer p{
     display: flex;
     width: 800px;
     height: 800px;
+    transition: width 0.3s, margin 0.3s;
+    transition-timing-function: linear;
     border-radius: 16px;
     margin: 0 30px;
-    
     font-family: 'Red Hat Text';
     font-weight: 500;
     font-size: 32px;
@@ -356,7 +358,7 @@ footer p{
 
 .fit-cont {
     display: flex;
-    width: fit-content;
+    /*width: fit-content;*/
 }
 
 .circle {
@@ -405,7 +407,7 @@ footer p{
 
 .cut-overflow {
     height: 844px;
-    position: relative;
+    /*position: relative;*/
     overflow: hidden;
 }
 
