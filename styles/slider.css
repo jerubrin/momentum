@@ -42,8 +42,8 @@
 }
 
 .slow-hide {
-    min-width: 0px !important;
-    margin: 0 1px !important;
+    width: 0px !important;
+    margin: 0 !important;
 /*
     transition: min-width 0.5s, margin 0.5s;
     transition-timing-function: linear;

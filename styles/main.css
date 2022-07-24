@@ -321,9 +321,9 @@ footer p{
 
 .dest-block {
     display: flex;
-    min-width: 800px;
+    width: 800px;
     height: 800px;
-    transition: min-width 0.25s, margin 0.25s;
+    transition: width 0.3s, margin 0.3s;
     transition-timing-function: linear;
     border-radius: 16px;
     margin: 0 30px;

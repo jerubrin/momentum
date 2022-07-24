@@ -1,62 +1,138 @@
 function doNothing() {return null;}
 
-function slideToRight() {
-    document.getElementById('pic-0').classList.add('slow-hide');
-    let cloneNode = document.getElementById('pic-0').cloneNode(true);
-    document.getElementById('pic-0').id = 'pic-r'
-    document.getElementById('slider').appendChild(cloneNode);
+let allowMoving = true;
+let pics = [];
+let picAdd1;
+let picAdd2;
 
-    nullOnClicks();
-    document.getElementById('slider').addEventListener("transitionend", rightTransitionEnd);
-}
-
-function rightTransitionEnd(){
-    if (document.getElementById('pic-r') != null) {
-        document.getElementById('slider').removeChild(document.getElementById('pic-r'));
-        document.getElementById('pic-0').classList.remove('slow-hide');
-
-        document.getElementById('pic-0').id = 'pic-n';
-        document.getElementById('pic-1').id = 'pic-0';
-        document.getElementById('pic-2').id = 'pic-1';
-        document.getElementById('pic-3').id = 'pic-2';
-        document.getElementById('pic-4').id = 'pic-3';
-        document.getElementById('pic-5').id = 'pic-4';
-        document.getElementById('pic-n').id = 'pic-5';
-        selectRight();
-        setOnClicks();
+document.addEventListener("DOMContentLoaded", function(){
+    let sliderPics = document.querySelectorAll('.dest-block');
+    pics = [
+        document.querySelectorAll('.dest-block')[1].cloneNode(true),
+        document.querySelectorAll('.dest-block')[2].cloneNode(true),
+        document.querySelectorAll('.dest-block')[3].cloneNode(true)
+    ];
+    for (let pic of pics){
+        pic.classList.add('slow-hide');
     }
-    document.getElementById('slider').removeEventListener("transitionend", rightTransitionEnd)
-}
+});
+
 
 function slideToLeft() {
-    document.getElementById('pic-5').classList.add('slow-hide');
-    let cloneNode = document.getElementById('pic-5').cloneNode(true);
-    document.getElementById('pic-5').id = 'pic-r'
-    document.getElementById('slider').insertBefore(cloneNode, document.getElementById('pic-0'));
+    if (allowMoving) {
+        allowMoving = false;
+        let sliderPics = document.querySelectorAll('.dest-block');
+        if (sliderPics.length == 5) {
+            //TODO: 5 pics
+            let picAdd1;
+            let picAdd2;
+            if (sliderPics[0].classList.contains('dest-1')) {
+                picAdd2 = pics[2].cloneNode(true);
+                picAdd1 = pics[1].cloneNode(true);
+            } else if (sliderPics[0].classList.contains('dest-2')) {
+                picAdd2 = pics[0].cloneNode(true);
+                picAdd1 = pics[2].cloneNode(true);
+            } else {
+                picAdd2 = pics[1].cloneNode(true);
+                picAdd1 = pics[0].cloneNode(true);
+            }
+            document.querySelector('#slider').prepend(picAdd2);
+            document.querySelector('#slider').prepend(picAdd1);
+            setTimeout(() => {
+                picAdd1.classList.remove('slow-hide');
+                picAdd2.classList.remove('slow-hide');
+            },20)
+            setTimeout(() => {
+                setPicIds();
+                selectLeft();
+                allowMoving = true;
+            },300)
+            //TODO: 5 pics
+        } else {
+            sliderPics[5].classList.add('slow-hide');
+            sliderPics[6].classList.add('slow-hide');
+            setTimeout(() => {
+                document.querySelector('#slider').removeChild(sliderPics[5]);
+                document.querySelector('#slider').removeChild(sliderPics[6]);
 
-    nullOnClicks();
-    document.getElementById('slider').addEventListener("transitionend", leftTransitionEnd);
-}
-
-function leftTransitionEnd(){
-    if (document.getElementById('pic-r') != null) {
-        document.getElementById('slider').removeChild(document.getElementById('pic-r'));
-        document.getElementById('pic-5').classList.remove('slow-hide');
-        
-        document.getElementById('pic-5').id = 'pic-n';
-        document.getElementById('pic-4').id = 'pic-5';
-        document.getElementById('pic-3').id = 'pic-4';
-        document.getElementById('pic-2').id = 'pic-3';
-        document.getElementById('pic-1').id = 'pic-2';
-        document.getElementById('pic-0').id = 'pic-1';
-        document.getElementById('pic-n').id = 'pic-0';
-        
-        selectLeft();
-        setOnClicks();
+                setPicIds();
+                selectLeft();
+                allowMoving = true;
+            },300)
+        }
     }
-    document.getElementById('slider').removeEventListener("transitionend", leftTransitionEnd)
 }
 
+function slideToRight() {
+    if (allowMoving) {
+        allowMoving = false;
+        let sliderPics = document.querySelectorAll('.dest-block');
+        if (sliderPics.length == 5) {
+            let picAdd1;
+            let picAdd2;
+            if (sliderPics[4].classList.contains('dest-1')) {
+                picAdd1 = pics[1].cloneNode(true);
+                picAdd2 = pics[2].cloneNode(true);
+            } else if (sliderPics[4].classList.contains('dest-2')) {
+                picAdd1 = pics[2].cloneNode(true);
+                picAdd2 = pics[0].cloneNode(true);
+            } else {
+                picAdd1 = pics[0].cloneNode(true);
+                picAdd2 = pics[1].cloneNode(true);
+            }
+            document.querySelector('#slider').append(picAdd1);
+            document.querySelector('#slider').append(picAdd2);
+            setTimeout(() => {
+                picAdd1.classList.remove('slow-hide');
+                picAdd2.classList.remove('slow-hide');
+            },20)
+            setTimeout(() => {
+                setPicIds();
+                selectRight();
+                allowMoving = true;
+            },330)
+            //TODO: 5 pics
+        } else {
+            sliderPics[0].classList.add('slow-hide');
+            sliderPics[1].classList.add('slow-hide');
+            setTimeout(() => {
+                document.querySelector('#slider').removeChild(sliderPics[0]);
+                document.querySelector('#slider').removeChild(sliderPics[1]);
+
+                setPicIds();
+                selectRight();
+                allowMoving = true;
+            },330)
+        }
+    }
+}
+
+function setPicIds() {
+    let sliderPics = document.querySelectorAll('.dest-block');
+    for(let i = 0; i < sliderPics.length; i++) {
+        sliderPics[i].id = "pic-" + (i + 1);
+    }
+    setOnClicks()
+}
+
+function setOnClicks() {
+    let sliderPics = document.querySelectorAll('.dest-block');
+        if (sliderPics.length == 5) {
+            document.getElementById('pic-1').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-2').setAttribute("onclick", "slideToLeft()")
+            document.getElementById('pic-3').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-4').setAttribute("onclick", "slideToRight()")
+            document.getElementById('pic-5').setAttribute("onclick", "doNothing()")
+        } else {
+            document.getElementById('pic-1').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-2').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-3').setAttribute("onclick", "slideToLeft()")
+            document.getElementById('pic-4').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-5').setAttribute("onclick", "slideToRight()")
+            document.getElementById('pic-6').setAttribute("onclick", "doNothing()")
+            document.getElementById('pic-7').setAttribute("onclick", "doNothing()")
+        }
+};
 
 function selectRight() {
     if (document.getElementById('circle-1').classList.contains('circle-active')) {
@@ -101,17 +177,13 @@ function select(n) {
             document.getElementById('circle-2').href = "javascript:slideToLeft();";
     }
 }
-
-function nullOnClicks() {
-    document.getElementById('pic-0').setAttribute("onclick", "doNothing()")
-    document.getElementById('pic-1').setAttribute("onclick", "doNothing()")
-    document.getElementById('pic-2').setAttribute("onclick", "doNothing()")
-    document.getElementById('pic-3').setAttribute("onclick", "doNothing()")
-    document.getElementById('pic-4').setAttribute("onclick", "doNothing()")
-    document.getElementById('pic-5').setAttribute("onclick", "doNothing()")
-};
-
-function setOnClicks() {
-    document.getElementById('pic-1').setAttribute("onclick", "slideToLeft()")
-    document.getElementById('pic-3').setAttribute("onclick", "slideToRight()")
-};
+//
+//function nullOnClicks() {
+//    document.getElementById('pic-0').setAttribute("onclick", "doNothing()")
+//    document.getElementById('pic-1').setAttribute("onclick", "doNothing()")
+//    document.getElementById('pic-2').setAttribute("onclick", "doNothing()")
+//    document.getElementById('pic-3').setAttribute("onclick", "doNothing()")
+//    document.getElementById('pic-4').setAttribute("onclick", "doNothing()")
+//    document.getElementById('pic-5').setAttribute("onclick", "doNothing()")
+//};
+//
