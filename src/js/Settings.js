@@ -1,7 +1,6 @@
-import getLang, { getSettingsParams, setSettingsParams } from './dataSaver'
+import getLang, { setLocalStorage, getLocalStorage, getSettingsParams, setSettingsParams } from './dataSaver'
 import i18next from './i18nextRes';
 import QOfDay from './QOfDay'
-import { getLocalStorage } from './dataSaver'
 
 export default class Settings {
 
@@ -229,8 +228,9 @@ export default class Settings {
     }
 
     reloadAllText() {
-        QOfDay.setNewQ()
+        //QOfDay.setNewQ()
         this.setFieldsByLang()
+        setLocalStorage(true)
         getLocalStorage()
 
     }

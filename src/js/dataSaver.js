@@ -3,14 +3,16 @@ import i18next from './i18nextRes';
 
 let isLoaded = false
 window.addEventListener('load', getLocalStorage)
-window.addEventListener('beforeunload', setLocalStorage)
+window.addEventListener('beforeunload', () => setLocalStorage(isLoaded))
 
-function setLocalStorage() {
-    if (isLoaded) {
+export function setLocalStorage(isLoad) {
+    if (isLoad) {
         window.localStorage.setItem('userName', document.querySelector("input.name").value)
         if (document.querySelector("input.city").value != i18next['ru']['defCity'] &&
             document.querySelector("input.city").value != i18next['en']['defCity']) {
                 window.localStorage.setItem('city', document.querySelector("input.city").value)
+        } else {
+            window.localStorage.removeItem('city')
         }
         window.localStorage.setItem('vol', document.querySelector('audio').volume)
     }
