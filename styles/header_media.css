@@ -1,0 +1,62 @@
+@media only screen and (max-width: 896px) {
+    #logo-text {
+        font-size: 24px;
+    }
+    
+    #logo-pic img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media only screen and (max-width: 847px) {
+    #logo-text {
+        font-size: 16px;
+    }
+    
+    #logo-pic img {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #top-nav ul li {
+        font-size: 12px;
+        margin: 0 16px;
+    }
+    
+    .little-button {
+        padding: 7px 20px;
+        font-size: 12px;
+    }
+    
+    header {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 632px) {
+    #top-nav ul li {
+        font-size: 8px;
+        margin: 0 10px;
+    }
+    
+    .little-button {
+        padding: 3px 10px;
+        font-size: 8px;
+    }
+    
+    header {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #logo-text {
+        font-size: 10px;
+    }
+    
+    #logo-pic img {
+        width: 10px;
+        height: 10px;
+    }
+}
