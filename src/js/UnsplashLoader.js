@@ -9,8 +9,8 @@ export default class UnsplashLoader {
         this.isChangingNow = false
     }
 
-    nextImg() {
-        if(this.currentImg >= this.imgUnsplashList.length - 1 && this.isChangingNow == false) {
+    nextImg(gitHubLoader) {
+        if(this.currentImg >= this.imgUnsplashList.length - 1 && !this.isChangingNow) {
             this.isChangingNow = true
             let imgTag = getSettingsParams().tag
             if (this.tag != imgTag) {
@@ -19,30 +19,47 @@ export default class UnsplashLoader {
                 this.tag = imgTag
             }
             fetch(this.getNewImg(imgTag != '' && imgTag ? imgTag : this.getTimeOfDay()))
-                .then(res => res.json())
+                .then(res => {
+                    if(res.ok) {
+                        return res.json();
+                    } else {
+                        console.log(res.status)
+                        if(res.status == "404") {
+                            throw new Error('Pictures not found!');
+                        } else if(res.status == "403") {
+                            throw new Error('Rate Limit Exceeded!');
+                        }
+                    }
+                })
                 .then(data => {
                     this.imgUnsplashList.push(data.urls.regular)
                     this.currentImg++
                     this.setBackGround(data.urls.regular)
+                })
+                .catch(e => {
+                    if (e.message == 'Pictures not found!') {
+                        document.querySelector('.tag-tittle').textContent = i18[getLang()].tagNotFound
+                    } else if (e.message == 'Rate Limit Exceeded!') {
+                        console.log("Rate Limit")
+                        gitHubLoader.gitHubNext()
+                    } else {
+                        console.log(e.message)
+                        gitHubLoader.gitHubNext()
+                    }
                     setTimeout(() => {
                         this.isChangingNow = false
                     }, 1000)
                 })
-                .catch(e => {
-                    document.querySelector('.tag-tittle').textContent = i18[getLang()].tagNotFound
-                    this.isChangingNow = false
-                })
-        } else {
+        } else if(!this.isChangingNow) {
+            this.isChangingNow = true
             this.currentImg++
             this.setBackGround(this.imgUnsplashList[this.currentImg])
-            setTimeout(() => {
-                this.isChangingNow = false
-            }, 1000)
         }
     }
 
-    prevImg() {
-        if(this.currentImg <= 0 && this.isChangingNow == false) {
+    prevImg(gitHubLoader) {
+        //console.log(this.isChangingNow)
+        if(this.currentImg <= 0 && !this.isChangingNow) {
             this.isChangingNow = true
             let imgTag = getSettingsParams().tag
             if (this.tag != imgTag) {
@@ -51,30 +68,46 @@ export default class UnsplashLoader {
                 this.tag = imgTag
             }
             fetch(this.getNewImg(imgTag != '' && imgTag ? imgTag : this.getTimeOfDay()))
-                .then(res => res.json())
+                .then(res => {
+                    if(res.ok) {
+                        return res.json();
+                      } else {
+                        console.log(res.status)
+                        if(res.status == "404") {
+                            throw new Error('Pictures not found!');
+                        } else if(res.status == "403") {
+                            throw new Error('Rate Limit Exceeded!');
+                        }
+                      }
+                })
                 .then(data => {
                     this.imgUnsplashList.unshift(data.urls.regular)
                     this.currentImg = 0
                     this.setBackGround(data.urls.regular)
+                })
+                .catch(e => {
+                    if (e.message == 'Pictures not found!') {
+                        document.querySelector('.tag-tittle').textContent = i18[getLang()].tagNotFound
+                    } else if (e.message == 'Rate Limit Exceeded!') {
+                        console.log("Rate Limit")
+                        gitHubLoader.gitHubNext()
+                    } else {
+                        console.log(e.message)
+                        gitHubLoader.gitHubNext()
+                    }
                     setTimeout(() => {
                         this.isChangingNow = false
                     }, 1000)
                 })
-                .catch(e => {
-                    document.querySelector('.tag-tittle').textContent = i18[getLang()].tagNotFound
-                    this.isChangingNow = false
-                })
-        } else {
+        } else if(!this.isChangingNow) {
+            this.isChangingNow = true
             this.currentImg--
             this.setBackGround(this.imgUnsplashList[this.currentImg])
-            setTimeout(() => {
-                this.isChangingNow = false
-            }, 1000)
         }
     }
 
     getNewImg(tag) {
-        const url = "https://api.unsplash.com/photos/random?orientation=landscape&query=" + tag + "&client_id=0MdCT7Hxxkbq4oz83QRuSVmuTfzdW4YZnkat_TeyMDI"
+        const url = "https://api.unsplash.com/photos/random?orientation=landscape&query=" + tag + "&client_id=1Xlj4mv56qIR-PJX-Z0KYYgOfAoHQF98kch5g8jOumI"
         return url
     }
 
