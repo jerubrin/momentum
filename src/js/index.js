@@ -9,6 +9,7 @@ import AudioPlayer from './AudioPlayer'
 import Settings from './Settings'
 import getLang from './dataSaver'
 import i18 from './i18nextRes'
+import Todo from './Todo'
 
 let loading = document.querySelector('.loading')
 console.log(i18[getLang()].loading)
@@ -22,3 +23,4 @@ new Weather()
 new QOfDay()
 new AudioPlayer()
 new Settings()
+new Todo()

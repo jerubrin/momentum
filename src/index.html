@@ -108,26 +108,81 @@
           <div class="b-todo-tittle settings-title">Todo list:</div>
           <a class="b-todo-seted settings-seted">show</a>
         </div>
-        <div class="settings-line">
+        <!-- <div class="settings-line">
           <div class="b-link-tittle settings-title">Link list:</div>
           <a class="b-link-seted settings-seted">show</a>
         </div>
         <div class="settings-line">
           <div class="b-contact-tittle settings-title">Contact list:</div>
           <a class="b-contact-seted settings-seted">show</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-  <div class="todo">todo</div>
+  <a class="todo"></a>
   <div class="todo-pop-up">
     <div class="todo-back"></div>
-    <div class="todo-wrapper">
-      <div class="todo-tittle"></div>
+    <div class="todo-wrapper hide-block">
+      <div class="todo-tittle">
+        <div class="todo-down-menu">
+            <div>Inbox</div>
+            <div class="down-icon"></div>
+        </div>
+        <div class="todo-dots-menu"><img class="dots-icon"></div>
+      </div>
+      <div class="dropdown-lists hide-block-down">
+        <ul class="list-chooser">
+          <li class="list-1">
+            <div class="list-name">Inbox</div>
+            <div class="list-item-count">0</div>
+          </li>
+          <li class="list-2">
+            <div class="list-name">Today</div>
+            <div class="list-item-count">0</div>
+          </li>
+          <li class="list-3">
+            <div class="list-name">Done</div>
+            <div class="list-item-count">0</div>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown-settings hide-block-down">
+        <ul class="list-chooser">
+          <li class="settings-li">
+            <div class="settings-name">Settings</div>
+          </li>
+        </ul>
+      </div>
+      <div class="todo-list-items">
+        <li>
+          <div class="todo-item">
+            <input class="todo-item-tick" type="checkbox">
+            <div class="todo-item-name">
+              <span contenteditable="false">todo 1</span>
+            </div>
+          </div>
+          <div class="todo-item-options"></div>
+          <div class="todo-item-options-wrapper">
+            <ul class="options-menu hide-block-down">
+              <li class="options-edit">Edit</li>
+              <li class="options-move-1">Move to Today</li>
+              <li class="options-move-2">Move to Done</li>
+              <li class="options-delete">Delete</li>
+            </ul>
+          </div>
+        </li>
+      </div>
+      <div class="todo-start-screen hide-block-down">
+        <h3 class="todo-start-title">Add a todo get</h3>
+        <p class="todo-start-text">Switch to Today</p>
+        <button class="todo-start-new">New Todo</button>
+      </div>
+      <div class="todo-footer">
+        <input class="todo-new" placeholder="New Todo">
+      </div>
     </div>
   </div>
   <div class="loading"></div>
   <audio></audio>
-  <!--<script type="module" src="js/index.js"></script>-->
 </body>
 </html>

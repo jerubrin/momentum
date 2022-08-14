@@ -1,6 +1,5 @@
 import getLang, { setLocalStorage, getLocalStorage, getSettingsParams, setSettingsParams } from './dataSaver'
 import i18next from './i18nextRes';
-import QOfDay from './QOfDay'
 
 export default class Settings {
 
@@ -43,10 +42,10 @@ export default class Settings {
         this.sPlayerSettd = document.querySelector('.b-player-seted')
         this.sTodoTitle = document.querySelector('.b-todo-tittle')
         this.sTodoSettd = document.querySelector('.b-todo-seted')
-        this.sLinkTitle = document.querySelector('.b-link-tittle')
-        this.sLinkSettd = document.querySelector('.b-link-seted')
-        this.sContactTitle = document.querySelector('.b-contact-tittle')
-        this.sContactSettd = document.querySelector('.b-contact-seted')
+        //this.sLinkTitle = document.querySelector('.b-link-tittle')
+        //this.sLinkSettd = document.querySelector('.b-link-seted')
+        //this.sContactTitle = document.querySelector('.b-contact-tittle')
+        //this.sContactSettd = document.querySelector('.b-contact-seted')
 
         this.setFieldsByLang()
         this.setOnClicks()
@@ -69,8 +68,8 @@ export default class Settings {
         this.sWeatherTitle.textContent = i18next[getLang()].showWeather
         this.sPlayerTitle.textContent = i18next[getLang()].showPlayer
         this.sTodoTitle.textContent = i18next[getLang()].showTodo
-        this.sLinkTitle.textContent = i18next[getLang()].showLink
-        this.sContactTitle.textContent = i18next[getLang()].showContact
+        //this.sLinkTitle.textContent = i18next[getLang()].showLink
+        //this.sContactTitle.textContent = i18next[getLang()].showContact
 
         this.sLangSetted.textContent = i18next[getLang()].lang[this.params.lang]
         this.sImgSetted.textContent = i18next[getLang()].imgSource[this.params.imgSource]
@@ -88,8 +87,13 @@ export default class Settings {
         this.setVisability(this.sWeatherSettd, this.params.isShow.weather)
         this.setVisability(this.sPlayerSettd, this.params.isShow.player)
         this.setVisability(this.sTodoSettd, this.params.isShow.todo)
-        this.setVisability(this.sLinkSettd, this.params.isShow.link)
-        this.setVisability(this.sContactSettd, this.params.isShow.contact)
+        //this.setVisability(this.sLinkSettd, this.params.isShow.link)
+        //this.setVisability(this.sContactSettd, this.params.isShow.contact)
+
+        document.querySelector('input.todo-new').placeholder = i18next[getLang()].todoNew
+        document.querySelector('.todo').textContent = i18next[getLang()].todoTitle
+
+        document.querySelector('.change-quote').click()
     }
 
     setVisability(node, isVisible) {
@@ -161,6 +165,13 @@ export default class Settings {
         }
         this.sPlayerSettd.onclick = () => {
             this.params.isShow.player = !this.params.isShow.player
+            if(!this.params.isShow.player) {
+                setTimeout(() => { document.querySelector('audio').pause() }, 2000)
+            } else {
+                if(document.querySelector('button.play').classList.contains('pause')) {
+                    setTimeout(() => { document.querySelector('audio').play() }, 2000)
+                }
+            }
             this.setVisability(this.sPlayerSettd, this.params.isShow.player)
             setSettingsParams(this.params)
             this.updateVisuability()
@@ -171,18 +182,18 @@ export default class Settings {
             setSettingsParams(this.params)
             this.updateVisuability()
         }
-        this.sLinkSettd.onclick = () => {
-            this.params.isShow.link = !this.params.isShow.link
-            this.setVisability(this.sLinkSettd, this.params.isShow.link)
-            setSettingsParams(this.params)
-            this.updateVisuability()
-        }
-        this.sContactSettd.onclick = () => {
-            this.params.isShow.contact = !this.params.isShow.contact
-            this.setVisability(this.sContactSettd, this.params.isShow.contact)
-            setSettingsParams(this.params)
-            this.updateVisuability()
-        }
+        // this.sLinkSettd.onclick = () => {
+        //     this.params.isShow.link = !this.params.isShow.link
+        //     this.setVisability(this.sLinkSettd, this.params.isShow.link)
+        //     setSettingsParams(this.params)
+        //     this.updateVisuability()
+        // }
+        // this.sContactSettd.onclick = () => {
+        //     this.params.isShow.contact = !this.params.isShow.contact
+        //     this.setVisability(this.sContactSettd, this.params.isShow.contact)
+        //     setSettingsParams(this.params)
+        //     this.updateVisuability()
+        // }
     }
 
     updateVisuability() {
@@ -225,6 +236,14 @@ export default class Settings {
         } else {
             document.querySelector('.player').classList.add('transperent-block') 
         }
+
+        if(this.params.isShow.todo) {
+            document.querySelector('.todo').classList.remove('transperent-block') 
+            document.querySelector('.todo-pop-up').classList.remove('transperent-block') 
+        } else {
+            document.querySelector('.todo').classList.add('transperent-block') 
+            document.querySelector('.todo-pop-up').classList.add('transperent-block') 
+        }
     }
 
     reloadAllText() {
@@ -232,6 +251,5 @@ export default class Settings {
         this.setFieldsByLang()
         setLocalStorage(true)
         getLocalStorage()
-
     }
 }

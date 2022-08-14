@@ -35,7 +35,21 @@ export default {
         showLink: "Link list:",
         showContact: "Contact list:",
         isShow: "show",
-        isHide: "hide"
+        isHide: "hide",
+
+        //Todo
+        todoTitle: "Todo",
+        todoInbox: "Inbox",
+        todoToday: "Today",
+        todoDone: "Done",
+        todoSettings: "Settings",
+        todoNew: "New Todo",
+        todoEmptyTitle: "Add a todo to get started",
+        todoEmptyMessage: "Switch to ",
+        todoEmptyNew: "New Todo",
+        menuEdit: "Edit",
+        menuMoveTo: "Move to ",
+        menuDelete: "Delete"
     },
     ru: {
         //Loading
@@ -73,6 +87,20 @@ export default {
         showLink: "Список ссылок:",
         showContact: "Список контактов:",
         isShow: "видно",
-        isHide: "скрыто"
+        isHide: "скрыто",
+
+        //Todo
+        todoTitle: "Список дел",
+        todoInbox: "Входящие",
+        todoToday: "Сегодня",
+        todoDone: "Выполненно",
+        todoSettings: "Настройки",
+        todoNew: "Новая задача",
+        todoEmptyTitle: "Добавьте новую задачу",
+        todoEmptyMessage: "Переключится на ",
+        todoEmptyNew: "Новая задача",
+        menuEdit: "Редактирова",
+        menuMoveTo: "Переместить в ",
+        menuDelete: "Удалить"
     }
 }

@@ -1,5 +1,6 @@
 import Weather from './Weather'
 import i18next from './i18nextRes';
+import Todo from './Todo'
 
 let isLoaded = false
 window.addEventListener('load', getLocalStorage)
@@ -15,6 +16,7 @@ export function setLocalStorage(isLoad) {
             window.localStorage.removeItem('city')
         }
         window.localStorage.setItem('vol', document.querySelector('audio').volume)
+        saveTodo()
     }
 }
 
@@ -43,6 +45,8 @@ export function getLocalStorage() {
     if(audio.volume == 0) { 
         document.querySelector('.vol-mute').classList.add('mute-icon')
     }
+
+    loadTodo()
 
     isLoaded = true
 }
@@ -149,7 +153,7 @@ function setPlayerVis(value) {
 }
 
 function getTodoVis() {
-    return getByKey('vis-todo') ? getByKey('vis-todo') == "true" : false
+    return getByKey('vis-todo') ? getByKey('vis-todo') == "true" : true
 }
 function setTodoVis(value) {
     setByKey('vis-todo', value)
@@ -175,4 +179,30 @@ function setByKey(key, val) {
 }
 function getByKey(key) {
     return  window.localStorage.getItem(key)
+}
+
+let defObjectTodo = {
+    inbox: [],
+    today: [],
+    done: []
+}
+
+export let objectTodo = {}
+
+function loadTodo() {
+    // localStorage.setItem('objectTodo', JSON.stringify({
+    //     inbox: [],
+    //     today: [],
+    //     done: []
+    // }));
+
+    objectTodo = localStorage.getItem('objectTodo')
+    objectTodo = objectTodo ? JSON.parse(objectTodo) : defObjectTodo
+    console.log(objectTodo)
+}
+
+function saveTodo() {
+    objectTodo.inbox = objectTodo.inbox.filter(el => !el.checked)
+    objectTodo.today = objectTodo.today.filter(el => !el.checked)
+    localStorage.setItem('objectTodo', JSON.stringify(objectTodo));
 }

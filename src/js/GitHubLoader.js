@@ -13,7 +13,7 @@ export default class GitHubLoader {
         if (this.isChangingNow) return
         this.isChangingNow = true
         if(this.timeout) clearTimeout(this.timeout)
-
+        
         if (this.firstIn) {
             this.currentNum = Math.trunc( Math.random() * 19 + 1 )
             this.firstIn = false

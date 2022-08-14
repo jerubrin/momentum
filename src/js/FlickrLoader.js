@@ -56,7 +56,7 @@ export default class FlickrLoader {
     }
 
     getImageList(imgTag) {
-        fetch(this.getNewImg(imgTag != '' && imgTag ? imgTag : this.getTimeOfDay()))
+        fetch(this.getNewImg(imgTag != '' && imgTag ? imgTag : this.getTimeOfDay() ))
             .then(res => res.json())
             .then(data => {
                 this.imgList = data.photos.photo.map(it => it.url_h).filter(it => it)
@@ -79,6 +79,7 @@ export default class FlickrLoader {
     }
 
     getNewImg(tag) {
+        tag = Array(tag).map(ch => ch == ' ' ? '+' : ch).join('')
         const url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d48db3055797261ffc32bc1be17b6a6e&tags=" + tag + "&extras=url_h&format=json&nojsoncallback=1"
         return url
     }

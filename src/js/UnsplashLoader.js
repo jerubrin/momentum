@@ -107,6 +107,7 @@ export default class UnsplashLoader {
     }
 
     getNewImg(tag) {
+        tag = Array(tag).map(ch => ch == ' ' ? '+' : ch).join('')
         const url = "https://api.unsplash.com/photos/random?orientation=landscape&query=" + tag + "&client_id=1Xlj4mv56qIR-PJX-Z0KYYgOfAoHQF98kch5g8jOumI"
         return url
     }
