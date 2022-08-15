@@ -93,7 +93,7 @@ export default {
         todoTitle: "Список дел",
         todoInbox: "Входящие",
         todoToday: "Сегодня",
-        todoDone: "Выполненно",
+        todoDone: "Выполнено",
         todoSettings: "Настройки",
         todoNew: "Новая задача",
         todoEmptyTitle: "Добавьте новую задачу",

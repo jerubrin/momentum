@@ -198,7 +198,6 @@ function loadTodo() {
 
     objectTodo = localStorage.getItem('objectTodo')
     objectTodo = objectTodo ? JSON.parse(objectTodo) : defObjectTodo
-    console.log(objectTodo)
 }
 
 function saveTodo() {

@@ -250,12 +250,6 @@ export default class Todo {
             li.children[0].children[1].classList.remove('grey-todo')
             let keys = Object.keys(objectTodo)
             objectTodo.done = objectTodo.done.filter(it => it.uuid != element.uuid)
-            setTimeout(() => { 
-                li.parentNode.removeChild(li) 
-                if (objectTodo[keys[this.selected]].length == 0) {
-                    this.loadCleanScreen(this.selected)
-                }
-            }, 1000)
             if(this.selected != 2) {
                 let key = keys[this.selected]
                 if (!objectTodo[key].find(el => element.uuid == el.uuid)) {
@@ -266,6 +260,12 @@ export default class Todo {
                 if (!objectTodo[key].find(el => element.uuid == el.uuid)) {
                     objectTodo[key].push(element)
                 }
+                setTimeout(() => { 
+                    li.parentNode.removeChild(li) 
+                    if (objectTodo[keys[this.selected]].length == 0) {
+                        this.loadCleanScreen(this.selected)
+                    }
+                }, 1000)
             }
         }
         let keys = Object.keys(objectTodo)
