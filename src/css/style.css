@@ -785,6 +785,8 @@ body {
   z-index: 2;
   transition-duration: .5s;
   transition-property: height;
+  max-height: 340px;
+  overflow: scroll;
 }
 
 .todo-list-items li {
