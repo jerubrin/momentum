@@ -79,6 +79,10 @@ body {
   color: #C5B358;
 }
 
+.item-active {
+  color: #C5B358;
+}
+
 .player-icon,
 .slider-icon,
 .change-quote {
