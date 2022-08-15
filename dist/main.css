@@ -1700,6 +1700,10 @@ body {
     width: 120px;
     border-radius: 6px;
   }
+
+  .todo-list-items {
+    max-height: 240px;
+  }
   
   .todo-list-items li {
     margin: 4px 14px;
