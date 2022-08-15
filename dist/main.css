@@ -1356,11 +1356,14 @@ body {
   height: auto;
   display: flex;
   margin: 4px 16px;
-  height: 19px;
   justify-content: space-between;
   z-index: 1;
   transition-duration: .5s;
   transition-property: height;
+}
+
+.todo-item-name div {
+  text-align: start;
 }
 
 .todo-item {
@@ -1376,7 +1379,8 @@ body {
 }
 
 .todo-item-options {
-  width: 16px;
+  min-width: 20px;
+  margin-left: 4px;
   height: 16px;
   opacity: 0;
   cursor: pointer;
@@ -1697,7 +1701,6 @@ body {
   
   .todo-list-items li {
     margin: 4px 14px;
-    height: 16px;
   }
   
   .todo-item-tick {
@@ -1710,7 +1713,8 @@ body {
   }
   
   .todo-item-options {
-    width: 12px;
+    min-width: 16px;
+    margin-left: 4px;
     height: 12px;
   }
   

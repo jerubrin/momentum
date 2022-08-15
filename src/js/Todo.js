@@ -123,7 +123,7 @@ export default class Todo {
                 <div class="todo-item">
                   <input class="todo-item-tick" type="checkbox">
                   <div class="todo-item-name">
-                    <span contenteditable="false">${element.text}</span>
+                    <div contenteditable="false">${element.text}</div>
                   </div>
                 </div>
                 <div class="todo-item-options"></div>
@@ -179,7 +179,7 @@ export default class Todo {
             sel.addRange(range);
 
             let onclick = (e) => {
-                if(openE != e) {
+                if(openE != e && (e ? e.path[3] != li : true)) {
                     this.setNewValue(li.firstElementChild.children[1].firstElementChild.textContent, element.uuid)
                     li.firstElementChild.children[1].firstElementChild.setAttribute('contenteditable', false)
                     document.removeEventListener('click', onclick)
