@@ -786,7 +786,12 @@ body {
   transition-duration: .5s;
   transition-property: height;
   max-height: 340px;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.todo-list-items::-webkit-scrollbar { /* webkit */
+  width: 0;
+  height: 0;
 }
 
 .todo-list-items li {

@@ -119,6 +119,7 @@ export default class Todo {
         let move2 = (selected != 2) ? i18[this.lang].todoDone : i18[this.lang].todoInbox
         let moveNum2 = (selected != 2) ? 2 : 0
         const li = document.createElement('li')
+        li.classList.add('children')
             li.innerHTML = `
                 <div class="todo-item">
                   <input class="todo-item-tick" type="checkbox">

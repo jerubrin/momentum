@@ -71,7 +71,8 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src/assets/sounds/*.mp3'),
-                    to: path.resolve(__dirname, 'dist/assets/sounds')
+                    to: path.resolve(__dirname, 'dist/assets/sounds'),
+                    noErrorOnMissing: true
                 },
                 {
                     from: path.resolve(__dirname, 'src/assets/favicon.ico'),
