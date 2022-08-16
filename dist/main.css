@@ -1070,6 +1070,11 @@ body {
   transition: opacity 1s !important;
   transition-delay: 1.5s !important;
   opacity: 0 !important;
+  cursor: default !important;
+}
+
+.transperent-block * {
+  cursor: default !important;
 }
 
 .transperent-settings {
